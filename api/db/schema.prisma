@@ -18,3 +18,31 @@ model User {
   resetTokenExpiresAt DateTime?     //
   name                String
 }
+
+model Animal {
+  id        String  @id @default(uuid())
+  name      String
+  size      String
+  age       Int
+  color     String
+  gender   Gender? @relation(fields: [gender_id], references: [id])
+  gender_id String?
+  specie    String
+  photo_url String?
+  keeper    Keeper? @relation(fields: [keeper_id], references: [id])
+  keeper_id String?
+}
+
+model Keeper {
+  id     String   @id @default(uuid())
+  name   String
+  age    Int
+  gender String
+  animal Animal[]
+}
+
+model Gender {
+  id     String   @id @default(uuid())  
+  gender String
+  animal Animal[]
+}

@@ -67,6 +67,8 @@ export const handler = async (
     expires: 60 * 60 * 24 * 365 * 10,
   }
 
+  
+  
   const resetPasswordOptions: DbAuthHandlerOptions['resetPassword'] = {
     // handler() is invoked after the password has been successfully updated in
     // the database. Returning anything truthy will automatically log the user
